@@ -10,6 +10,7 @@
 #include <vector>
 #include "../Canvas.h"
 
+//Class configuring ASCIICanvas and passing it through getCanvas method
 class Configuration {
 public:
     char shadowSymbol = '.';

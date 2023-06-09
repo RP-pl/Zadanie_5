@@ -6,7 +6,8 @@
 #define STUDIA_LIGHT_H
 
 
-
+//Class representing light source
+//Could not inherit from Figure because of draw method implementation
 class Light{
 
 public:

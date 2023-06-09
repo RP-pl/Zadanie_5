@@ -8,6 +8,7 @@
 
 #include "Figure.h"
 
+//Class representing Rectangle
 class Rectangle : public Figure{
 public:
     void draw(Canvas& c) override;

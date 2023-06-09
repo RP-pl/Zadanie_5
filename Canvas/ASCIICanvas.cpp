@@ -78,12 +78,15 @@ void ASCIICanvas::write_to_file(std::string filename) {
 void ASCIICanvas::add_shadows(char emptySymbol,char shadowSymbol) {
     Canvas& canvas = *this;
     int* matrix = canvas.getShapeMatrix();
+    //For each light mark illuminated area
     for(Light l : canvas.getLightSources()) {
+        //For each point create linear function from light source to that point
         for (int x = 0; x < canvas.width; x++) {
             for (int y = 0; y < canvas.height; y++) {
                 std::tuple<int,int> t = calculate_function_params(x,y,l);
                 int ax = std::get<1>(t);
                 int ay = std::get<0>(t);
+                //For more aggressively changing functions make smaller steps(better function approximation)
                 double step = 1.0/ax;
                 if(ax == 0){
                     step = 1;
@@ -94,6 +97,7 @@ void ASCIICanvas::add_shadows(char emptySymbol,char shadowSymbol) {
                 if(l.xpos < x){
                     step *= -1;
                 }
+                //Mark area illuminated by that linear function
                 for(double i =l.xpos;0<=i&&i<canvas.width;i-=step){
                     if(ay == 0){
                         i+=l.xpos;
@@ -136,6 +140,7 @@ void ASCIICanvas::add_shadows(char emptySymbol,char shadowSymbol) {
             }
         }
     }
+    //Change illuminated area to empty spots and unilluminated areas to shadeSymbol
     for(int i=0;i<canvas.width*canvas.height;i++){
         if(matrix[i] == 0){
             matrix[i] = shadowSymbol;

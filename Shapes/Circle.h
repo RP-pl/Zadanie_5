@@ -8,6 +8,7 @@
 
 #include "Figure.h"
 
+//Class representing Circle
 class Circle : public Figure{
 private:
     int radius{};

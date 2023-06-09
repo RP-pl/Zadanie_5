@@ -8,6 +8,7 @@
 
 #include "../Canvas/Canvas.h"
 
+//Base class for all figures. This class having constructor implemented makes more sense than making it pure abstract.
 class Figure {
 public:
     Figure(int xpos,int ypos,char symbol){

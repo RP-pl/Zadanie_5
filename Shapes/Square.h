@@ -8,6 +8,7 @@
 
 #include "Rectangle.h"
 
+//Class representing Square
 class Square : public Rectangle{
 public:
     Square(int side_width,int xpos,int ypos,char symbol) : Rectangle(side_width,side_width,xpos,ypos,symbol){};

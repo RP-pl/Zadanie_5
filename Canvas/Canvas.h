@@ -12,8 +12,10 @@
 
 using std::vector;
 
+//Abstract class representing all methods needed by canvas subclasses to work properly
 class Canvas {
 public:
+    //Show canvas
     virtual void show() {};
     int width{};
     int height{};
@@ -25,7 +27,7 @@ public:
     vector<Light> lightsSources;
 protected:
     int* shapeMatrix{};
-
+    //Linear function needed to create shadows
     virtual int linear(int ax,int ay, int by,int bx,double x) {};
     virtual std::tuple<int,int> calculate_function_params(int x,int y,Light l) {
         return std::make_tuple(0,0);

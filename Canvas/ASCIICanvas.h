@@ -8,10 +8,12 @@
 
 #include "Canvas.h"
 
+//Class representing canvas of 2-dimensional ASCII table
 class ASCIICanvas : public Canvas{
 public:
     ASCIICanvas(int width,int height);
     int* getShapeMatrix() override;
+    //Prints canvas to console
     void show() override;
     void write_to_file(std::string filename);
     void addLightSource(Light l) override;
