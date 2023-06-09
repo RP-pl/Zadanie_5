@@ -1,0 +1,9 @@
+200 100
+-
++
+./file.txt
+Light 180 10
+Light 90 50
+Rectangle 20 20 30 20 $
+Square 30 140 50 $
+Circle 10 70 70 x
